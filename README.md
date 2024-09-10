@@ -4,7 +4,7 @@ I will spend a minimum of hour per day learn about Functional Programming and Oc
 
 ## Goals
 
-1. Learn Functional Programming and Lambda Calculus
+1. Learn Functional Programming
 2. Trying Learn and Pratice OCaml 
 
 
