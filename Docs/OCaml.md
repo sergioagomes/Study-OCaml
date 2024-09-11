@@ -2,6 +2,8 @@
 
 OCaml is a multi-paradigm programming language, has support for first-class for functional programming and OO, is a language statically and strongly typed.
 
+OBS: this file contains some annatations  and examle saw in OCaml4noobs
+
 ## Why OCaml ?
 
 - Type Inference - Hindley-Milner (It's a type system used in functional programmin languages, that allows for automatic type inferece.)
@@ -64,6 +66,7 @@ let add1_int (arg : int) : int = arg +. 1.
 ```OCaml
 
 (*Function*)
+(* *)
 let add x = x + 1
 
 (*Signature*)
@@ -196,7 +199,8 @@ let min1_so_mult2 = mult2 << min1
 min1_so_mult2 9
 (* - : int = 16*)
 ```
-## Piping
+
+### Piping
 Pipin is used to pass a value or function in first
 ```OCaml
 
