@@ -12,4 +12,5 @@ I will spend a minimum of hour per day learn about Functional Programming and Oc
 
 - [OCaml4noobs](https://github.com/Camilotk/ocaml4noobs)
 - [OCaml Programming: Correct + Efficient + Beautiful](https://cs3110.github.io/textbook/cover.html)
-- [OCaml Real World]()
+- [OCaml Real World](https://dev.realworldocaml.org/guided-tour.html)
+- [Lambda Calculus - Fundamentals of Lambda Calculus & Functional Programming in JavaScript](https://www.youtube.com/watch?v=3VQ382QG-y4)

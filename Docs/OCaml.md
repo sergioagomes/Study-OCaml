@@ -640,20 +640,20 @@ Most common erros in OCaml:
   - **Cyclic Dependencies**: OCaml does not allow cycle dependencies (when two definitions are mutually dependent on each other).If there is a cyclic dependency between two modules this will cause an errors
 
 
-## Designing Modules
+### Designing Modules
 The modules system is one of principal parts of architecture of any program in OCaml, that`s why is necessary that be projected of a efficient way, to do these we have some concepts to help us to project a program using modules system
 
-## Rarely exposed concrete types
+### Rarely exposed concrete types
 When we structuring a file **.mli**, one of choices that we need do is exposed or not the correct definition of types in our module or expose them as abstract types, in most of situations, abstract types is the correct choice, 'cause:
   1 - Abstract Types increases the flexibility of our code.
   2 - Abstract Types allow enforce how the types should be used.
 
 In summary, abstraction in code increases flexibility by limiting how module users interact with types, thus reducing potential dependencies on the implementation details. By explicitly exposing types, users can access all the exposed details, which can lead to unintended dependencies. However, by abstractly exposing types and only providing specific operations, you create a safe boundary that allows you to change the implementation without affecting the client code, as long as the exposed operations remain unchanged. This approach promotes a more maintainable and adaptable codebase.
 
-## Design for those who are calling
+### Design for those who are calling
 In summary, when designing an interface, it is essential to prioritize clarity and ease of understanding for those who will interact with it. By using descriptive names for functions, variant types, and records, you can make the API more obvious to consumers. Shorter names are suitable for functions with a smaller scope, while longer and more explicit names are beneficial for global functions. Additionally, less frequently used values can benefit from being named explicitly and verbosely. Prioritizing clarity and simplicity in the interface will facilitate the consumption and modification of code for those using the API.
 
-##### Create Uniforms Interfaces
+### Create Uniforms Interfaces
 When developing an interface, we should not think of it in isolation. Typically, our interfaces represent values that interact with the code and other interfaces, and they should work together seamlessly. This task becomes easier when we use conventions or interface patterns, making consumption and work with them more straightforward.
 
 Two commonly used conventions are:
@@ -681,7 +681,7 @@ module M : M = struct
 end
 ```
 
-## Interfaces Before implementation
+### Interfaces Before implementation
 OCaml is a very concise language with great flexibility in types and code design. One of the key tasks in writing a well-written OCaml program is to use types correctly and safely. Therefore, it is essential to carefully consider the types our program uses.
 
 A good approach to achieving this is to write type definitions before implementing the logic. This includes writing the signatures first when working with submodules and creating our .mli files before the corresponding .ml files.
@@ -689,7 +689,7 @@ A good approach to achieving this is to write type definitions before implementi
 By doing so, we establish a clear understanding of the types involved, which helps ensure that our code is robust and less prone to errors during the implementation process. Separating the type definitions from the implementation also promotes code readability and maintainability, making it easier for other developers to comprehend and use our code effectively.
 
 
-## Functors
+### Functors
 In OCaml, functors are parameterized modules that allow you to create generic and reusable modules. They are an advanced and powerful concept of the language that makes it possible to create modules that depend on other modules to function, allowing greater flexibility in writing code.
 
 The principal difference that have our functions is that these functions receive modules as parameters and also return modules. Functors allow us create parameterized modules  and provide a module to anothe that receives the implementation
@@ -737,7 +737,7 @@ Functors help us parameterized our applications and model better modules,in addi
 First-class modules are a sophisticated technique, and you’ll need to get comfortable with some advanced aspects of the language to use them effectively. But it’s worth learning, because letting modules into the core language is quite powerful, increasing the range of what you can express and making it easier to build flexible and  modular systems.
       (Real World OCaml)
 
-#### Building First-class modules
+### Building First-class modules
 
 So If I have a signature of a module that have a int type:
 ```ocaml
@@ -785,7 +785,7 @@ let numbers = [tree; (module struct let value = 5 end)];;
 ```
 
 
-#### Acessing First-class modules
+### Acessing First-class modules
 
 I can acess the content of first class module when we unpack in normal modules, to do this we use the reserved word **val** with structure:
 ```ocaml
@@ -824,8 +824,7 @@ we can see that when we unpack our module, it's value becomes the one returned b
 > First-class Modules is a advanced concept of language and it serves as a shortcut and a way to facilitate the solution of specific problems. 
 But it's important for you to know that everything that can be done using first-class modules can be done without using first-class modules.
 
-
-### Pattern Matching
+## Pattern Matching
 
 OCaml allows us to use pattern match to capture values through the pattern that can be inferred by the structural equality 
 of the data. We can use pattern match in almost any 
@@ -996,7 +995,7 @@ match second_request with
 So if result is easy to chain functions, these allow us work with small functions that are combined in bigger
 functions and more complexy.
 
-#### Sequence 
+## Sequence 
 
 Sequence is a type of abstract collection, is similar a List, but the difference is that Sequence works with
 Lazy Evaluation that which guarantees that it can contain more than a million elements, but computing only 
