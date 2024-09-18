@@ -2,7 +2,7 @@
 
 OCaml is a multi-paradigm programming language, has support for first-class for functional programming and OO, is a language statically and strongly typed.
 
-OBS: this file contains some annatations  and examle saw in OCaml4noobs
+OBS: this file contains some annatations  and examle saw in OCaml4noobs and Real World OCaml
 
 ## Why OCaml ?
 
@@ -172,6 +172,24 @@ let rec factorial n =
     else 
       n * factorial (n -1)
 
+```
+Other example:
+```OCaml
+let rec sum l =
+    match l with 
+    | [] -> 0
+    | hd :: tl -> hd + sum tl
+
+(* Output using the function sum 
+sum [1;2;3]
+= 1 + sum [2;3]
+= 1 + (2 + sum [3])
+= 1 + (2 + (3 + sum []))
+= 1 + (2 + (3 + 0))
+= 1 + (2 + 3)
+= 1 + 5
+= 6
+*)
 ```
 
 ### Composition of Functions
