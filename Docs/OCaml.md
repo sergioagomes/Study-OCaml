@@ -173,7 +173,7 @@ let rec factorial n =
       n * factorial (n -1)
 
 ```
-Other example:
+Others examples by book:
 ```OCaml
 let rec sum l =
     match l with 
@@ -190,6 +190,18 @@ sum [1;2;3]
 = 1 + 5
 = 6
 *)
+```
+```OCaml
+let rec remove_sequential_duplicates list =
+  match list with
+  | [] -> []
+  | [x] -> [x]
+  | first :: second :: tl ->
+    if first = second then
+      remove_sequential_duplicates (second :: tl)
+
+remove_sequential_duplicates [1;1;2;3;3;4;4;1;1;1];;
+(*- : int list = [1; 2; 3; 4; 1]*)
 ```
 
 ### Composition of Functions
@@ -937,8 +949,14 @@ type 'a option' =
     | None;;
 
 Some "a"
+```
+Example by book:
+```OCaml
+let divide x y =
+  if y = 0 then None else Some (x / y);;
 
 ```
+
 
 #### Result 
 
