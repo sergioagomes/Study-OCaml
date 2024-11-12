@@ -24,8 +24,5 @@ let sum_of_squares n =
   n * (n + 1) * (2 * n + 1) / 6  
 
 let difference_of_squares n =
-  let sum = square_of_sum n in
-  let square_of_sum = sum * sum in
-  let sum_squares = sum_of_squares n in
-  square_of_sum - sum_squares
+    square_of_sum n - sum_of_squares n
 
