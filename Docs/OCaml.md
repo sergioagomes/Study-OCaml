@@ -116,19 +116,6 @@ let result = average 4 6
 
 ```
 
-### High-Order Functions
-
-Higher-order functions are functions that take other functions as arguments and/or return other functions as a result. In OCaml, as in other functional programming languages, it is possible to define higher-order functions.
-
-```OCaml
-let  list = [1; 2; 3; 4; 5]
-
-let new_list = List.map (fun x -> x + 2) list
-
-(*In these example I defined a list with values, and after that I defined a new list, using the function List.map to apply a function that sum the number of each element to 2*)
-
-```
-
 ### Currying
 
 Currying is a functional programming technique in which a function that takes several arguments is transformed into a sequence of functions that take only one argument each.
@@ -382,8 +369,12 @@ but an expression was expected of type 'd * 'e*)
 ```
 
 ### Records
-Record is a data type that allows you to define a data structure that contains a set of named fields, where each field has an associated type.
+there's a non-trivial amount of C, C++ and Rust code being released in debug/non-optimized builds and that simply proves that Go's codegen is "good enough"Record is a data type that allows you to define a data structure that contains a set of named fields, where each field has an associated type.
 
+Tips:
+- Order of fields is irrelevant
+- Any n umber of field permitted from 1 up to about 4 million
+- Field names are identifiers not expressions
 ```OCaml
 (*Sintax*)
 type <name record> =
@@ -992,7 +983,6 @@ let (a,b) = (1,2)
 (* val a : int = 1 *)
 (* val b : int = 2 *)
 ```
-
 These Pattern Match is called destructuring, the unstructured structure in
 left is infered the values of right strucuture, so the value 1 is identified by a, and
 value 2 is identified by b.
@@ -1000,15 +990,12 @@ value 2 is identified by b.
 In functions is also possible, so he have a function that receive a value
 of type tuple, the first item of tuple receive the name of parameter f and the
 second recevie s, so the function add the two values
-
 ```ocaml
 let pair (f, s) =
   f + s ;;
 (*val pair : int * int -> int = <fun> *)
 ```
-
 Below we have another example using pattern match with same tuple:
-
 ```ocaml
 let pair p =
     match p with
@@ -1018,13 +1005,24 @@ let pair p =
 
 (*val pair : int * int -> int = <fun> *)
 ```
-
 In these case we use reserved word **match** to do the pattern match
 of our values and this allow us especify multiples values that these parameter
 could contain and impute a return of accordingly with receive parameter, so in
 these case the first pattern found that is possible infer the input will be the return of
 expression it take.
 
+Example pattern match in Lists:
+```ocaml
+let empty lst =
+  match lst with
+  | [] -> true
+  | h :: t -> false
+
+let rec sum lst =
+  match lst with
+  | [] -> 0
+  | h :: t -> h + sum t 
+```
 #### Treat Errors
 
 So in OCaml how we use functional programming , we seek to work building functions that could
